@@ -1,0 +1,45 @@
+<div class="task-item " tabindex="0"[class.task-item--completed]="task.status">
+  <div class="cell">
+      <button aria-label="Mark task as completed" class="task-item__button" type="button" (click)="onCompleted()" *ngIf="edit == false">
+          <span class="icon material-icons" [class.icon--active]="task.status">done</span>
+      </button>
+  </div>
+
+  <div class="cell">
+        <div *ngIf="edit == false">
+          <div class="task-item__title" tabindex="0">
+            {{task.title}}
+          </div>
+        </div>
+
+        <form class="task-form" *ngIf="edit == true" novalidate (ngSubmit)="onSubmit()">
+          <input
+          autocomplete="off"
+          autoFocus
+          class="task-item__input"
+          name="title"
+          type="text"
+          [(ngModel)]="task.title"
+          >
+        </form>
+
+  </div>
+
+    <div class="cell">
+      <ng-container *ngIf="edit == false else other_edit">
+        <button aria-label="Edit task title" class="task-item__button" type="button" (click)="onEditing()">
+          <span class="icon material-icons">edit</span>
+        </button>
+        <button aria-label="Delete task" class="task-item__button" type="button"   (click)="onDeleteIdItem()">
+          <span class="icon material-icons">delete</span>
+        </button>
+      </ng-container>
+
+      <ng-template #other_edit>
+        <button aria-label="Cancel editing" class="task-item__button" type="button" (click)="onCancel()">
+          <span class="icon material-icons">&#xe14c;</span>
+        </button>
+      </ng-template>
+    </div>
+</div>
+

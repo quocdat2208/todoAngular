@@ -1,0 +1,18 @@
+<ul class="task-filters">
+  <li><a [class.active]="completed == 0" [routerLink]="['/task']">View All</a></li>
+  <li><a [class.active]="completed == -1" [routerLink]="['/task',{status : false}]">In Progress</a></li>
+  <li><a [class.active]="completed == 1" [routerLink]="['/task',{status : true}]">Completed</a></li>
+</ul>
+
+<div class="task-list">
+  <!-- Item -->
+
+  <app-item
+  *ngFor="let task of tasks"
+  [task]="task"
+  (updateStatus)="onUpdateStatus($event)"
+  (deleteIdItem) = "onDeleteIdConnected.emit(task.id)"
+  (titleItem) = "onTitleList.emit(task)"
+  ></app-item>
+
+</div>

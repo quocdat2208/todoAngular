@@ -1,0 +1,17 @@
+<div class="g-row">
+  <div class="g-col">
+    <!-- Form Add -->
+    <app-form (titleTask)="onTitleConnected($event)"></app-form>
+  </div>
+  <div class="g-col">
+        <!-- List -->
+    <app-list
+    [tasks]="tasks"
+    (updateStatus)="setStatus($event)"
+    (deleteIdList)="onDeleteIdTasks($event)"
+    (titleList)="onEditing($event)"
+
+    >
+  </app-list>
+  </div>
+</div>
