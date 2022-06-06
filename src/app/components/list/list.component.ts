@@ -22,7 +22,7 @@ export class ListComponent implements OnInit {
   ngOnInit() {
     this.subscription = this._ActivatedRoute.params.subscribe((data: Params) => {
         this.completed = data['status'] ?(data['status'] == 'true' ? 1 : -1):0;
-        console.log(this.completed);
+        // console.log(this.completed);
       })
   }
 // onDeleteIdList(id: number){
