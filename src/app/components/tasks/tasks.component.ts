@@ -17,7 +17,7 @@ export class TasksComponent implements OnInit {
 
   ngOnInit(): void {
     this.subscription = this._TaskService.getAll().subscribe((task: Task[]) => {
-      this.tasks = task;
+      // this.tasks = task;
     })
   }
 
@@ -76,5 +76,5 @@ export class TasksComponent implements OnInit {
       }
     }
   }
-  
+
 }
